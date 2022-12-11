@@ -4,7 +4,7 @@ function renderLicenseBadge(license) {
   if (!license) {
     return ``;
   } else {
-    return `[![${license} license](https://img.shields.io/badge/License-${license}-blue.svg)](${renderLicenseLink(license)})`
+    return `[![License](https://img.shields.io/badge/License-${license}-blue.svg)](${renderLicenseLink(license)})`
   }
 };
 
@@ -12,40 +12,40 @@ function renderLicenseBadge(license) {
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
-  if (license === 'Apache License 2.0') {
+  if (license === 'Apache_2.0') {
     return `https://opensource.org/licenses/Apache-2.0`
   }
-  if (license === 'GNU General Public License') {
+  if (license === 'GPLv3') {
     return `https://www.gnu.org/licenses/gpl-3.0`
   }
-  if (license === 'MIT License') {
+  if (license === 'MIT') {
     return `https://opensource.org/licenses/MIT`
   }
-  if (license === 'BSD 2-Clause "Simplified" License') {
+  if (license === 'BSD_2--Clause') {
     return `https://opensource.org/licenses/BSD-2-Clause`
   }
-  if (license === 'BSD 3-Clause "New" or "Revised" License') {
+  if (license === 'BSD_3--Clause') {
     return `https://opensource.org/licenses/BSD-3-Clause`
   }
-  if (license === 'Boost Software License 1.0') {
+  if (license === 'Boost_1.0') {
     return `https://www.boost.org/LICENSE_1_0.txt`
   }
-  if (license === 'Creative Commons Zero v1.0 Universal') {
+  if (license === 'CC0_1.0') {
     return `http://creativecommons.org/publicdomain/zero/1.0/`
   }
-  if (license === 'Eclipse Public License 2.0') {
+  if (license === 'EPL_2.0') {
     return `https://opensource.org/licenses/EPL-2.0`
   }
-  if (license === 'GNU Affero General Public License v3.0') {
+  if (license === 'AGPL_v3') {
     return `https://www.gnu.org/licenses/agpl-3.0`
   }
-  if (license === 'GNU General Public License v 2.0') {
+  if (license === 'GPL_v2') {
     return `https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html`
   }
-  if (license === 'Mozilla Public License 2.0') {
+  if (license === 'MPL_2.0') {
     return `https://opensource.org/licenses/MPL-2.0`
   }
-  if (license === 'The Unilicense') {
+  if (license === 'Unilicense') {
     return `http://unlicense.org/`
   }
 }
@@ -56,7 +56,7 @@ function renderLicenseSection(license) {
   if (!license) {
     return ``;
   } else {
-    return `## Licenses
+    return `## License
     This project is covered under the ${license} license. To learn more about what this means, click the license button at the top.`
   }
 }
@@ -65,39 +65,39 @@ function renderLicenseSection(license) {
 function generateMarkdown(data) {
   return `# ${data.title}
 
-  ${renderLicenseBadge(data.licenses)}
+  ${renderLicenseBadge(data.license)}
 
   ## Table of Contents:
-  -[Description] (#Description:)
-  -[Installation] (#Installation Instructions:)
-  -[Usage Information] (#Usage Information:)
-  -[Contribution] (#Contribution Guidelines:)
-  -[Test Instructions] (#Test Instructions:)
-  -[License] (#License:)
-  -[GitHub] (#GitHub:)
-  -[Email] (#Email:)
+  * [Description](#Description)
+  * [Installation](#Installation)
+  * [Usage Information](#Usage)
+  * [Contribution](#Contribution)
+  * [Test Instructions](#Tests)
+  * [License](#License)
+  * [GitHub](#GitHub)
+  * [Email](#Email)
 
-  ## Description: 
+  ## Description 
   ${data.description}
 
-  ## Installation Instructions: 
+  ## Installation 
   ${data.install}
 
-  ## Usage Information: 
+  ## Usage 
   ${data.usage}
 
-  ## Contribution Guidelines: 
+  ## Contribution 
   ${data.guidelines}
 
-  ## Test Instructions: 
+  ## Tests 
   ${data.instructions}
 
-  ${renderLicenseSection(data.licenses)}
+  ${renderLicenseSection(data.license)}
 
   ## Questions
   Have questions about this project?  
-  GitHub: https://github.com/${data.github}  
-  Email: ${data.email}
+  #GitHub https://github.com/${data.github}  
+  #Email ${data.email}
 
 `;
 }

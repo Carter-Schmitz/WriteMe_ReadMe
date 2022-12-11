@@ -1,11 +1,7 @@
 // TODO: Include packages needed for this application
 const fs = require('fs')
 const inquirer = require('inquirer')
-// TODO: Create an array of questions for user input
-const questions = [];
-
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) { }
+const generateMarkdown = require('./utils/generateMarkdown')
 
 // TODO: Create a function to initialize app
 function init() {
@@ -41,10 +37,23 @@ function init() {
             message: 'Please provide any test instructions.',
         },
         {
+            type: 'confirm',
+            name: 'confirmLicenses',
+            message: 'Would you like to include a license?',
+            default: false
+        },
+        {
             type: 'list',
             name: 'license',
-            message: 'What license is being used, if any?',
-            choices: ['Apache License 2.0', 'GNU General Public License', 'MIT License', 'BSD 2-Clause "Simplified" License', 'BSD 3-Clause "New" or "Revised" License', 'Boost Software License 1.0', 'Creative Commons Zero v1.0 Universal', 'Eclipse Public License 2.0', 'GNU Affero General Public License v3.0', 'GNU General Public License v 2.0', 'Mozilla Public License 2.0', 'The Unilicense']
+            message: 'What license would you like to include?',
+            choices: ['Apache_2.0', 'GPLv3', 'MIT', 'BSD_2--Clause', 'BSD_3--Clause', 'Boost_1.0', 'CC0_1.0', 'EPL_2.0', 'AGPL_v3', 'GPL_v2', 'MPL_2.0', 'Unlicense'],
+            when: ({ confirmLicenses }) => {
+                if (confirmLicenses) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
         },
         {
             type: 'input',
@@ -55,7 +64,14 @@ function init() {
             type: 'input',
             name: 'email',
             message: 'What is your email address?',
-        }])
+        },
+    ])
+        .then((data) => {
+            const content = generateMarkdown(data)
+
+            fs.writeFile('README.md', content, (err) =>
+                err ? console.log(err) : console.log('Successfully Created ReadMe!'))
+        })
 }
 
 // Function call to initialize app
