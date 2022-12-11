@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const fs = require('fs')
 const inquirer = require('inquirer')
+const generateMarkdown = require('./utils/generateMarkdown')
 
 // TODO: Create a function to initialize app
 function init() {
@@ -52,10 +53,12 @@ function init() {
             message: 'What is your email address?',
         },
     ])
-    .then((data) => {
-        fs.writeFile('README.md', data, (err) => 
-        err ? console.log(err) : console.log('Successfully Created ReadMe!')) 
-    })
+        .then((data) => {
+            const content = generateMarkdown(data)
+
+            fs.writeFile('README.md', content, (err) =>
+                err ? console.log(err) : console.log('Successfully Created ReadMe!'))
+        })
 }
 
 // Function call to initialize app
