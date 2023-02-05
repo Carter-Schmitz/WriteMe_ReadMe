@@ -1,6 +1,6 @@
-# WriteMe_ReadMe
+# Did I Take That?
 
-  [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+  [![License](https://img.shields.io/badge/License-Unlicense-blue.svg)](undefined)
 
   ## Table of Contents:
   * [Description](#Description)
@@ -13,25 +13,25 @@
   * [Email](#Email)
 
   ## Description 
-  This is an application to generate a professional ReadMe. Users will be prompted to enter information like a description, title, license, and other pertinent info. Once the user finishes input, a readme file is generated.
+  A web application where you can store and view all of your information about your medications. A user can create an account, and then log in to view all of their medications. Users also have the ability to delete and add new medications. Planned future updates include a button to press to indicate you've taken your medication which will then reset based on the entered frequency. As well as a refill reminder.
 
   ## Installation 
-  This application requires you to install inquirer v8.2.4. To do so type npm i inquirer@8.2.4 into your terminal to install the program.
-
-  ## Usage 
   N/A
 
+  ## Usage 
+  Please adhere to data field prompts when entering data
+
   ## Contribution 
-  Please Don't. I don't like approving things. But if you do, contact me first using the information below
+  Please contact me using the provided info regarding contributions
 
   ## Tests 
   N/A
 
   ## License
-    This project is covered under the MIT license. To learn more about what this means, click the license button at the top.
+    This project is covered under the Unlicense license. To learn more about what this means, click the license button at the top.
 
   ## Questions
   Have questions about this project?  
-  #GitHub https://github.com/undefined  
+  #GitHub https://github.com/Carter-Schmitz  
   #Email carterschmitz95@gmail.com
 
